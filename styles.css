@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lexend+Deca:wght@300;400&display=swap");
+
+/* || VARIABLES */
+:root {
+  /* COLORS */
+  --clr-dark-desaturated-blue: hsl(244, 38%, 16%);
+  --clr-slightly-transparent-white1: hsla(0, 0%, 100%, 0.75);
+  --clr-slightly-transparent-white2: hsla(0, 0%, 100%, 0.6);
+  --clr-soft-violet: hsl(277, 64%, 61%);
+  --clr-very-dark-blue: hsl(233, 47%, 7%);
+  --clr-white: hsl(0, 0%, 100%);
+
+  /* FONTS */
+  --ff-inter: "Inter", sans-serif;
+  --ff-lexend-deca: "Lexend Deca", sans-serif;
+}
+
+/* || RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* || GENERAL STYLES */
+html {
+  font-family: var(--ff-inter);
+  font-size: 15px;
+}
+
+body {
+  background-color: var(--clr-very-dark-blue);
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+}
+
+article {
+  background-color: var(--clr-dark-desaturated-blue);
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 2rem;
+  max-width: 68rem;
+  overflow: hidden;
+}
+
+.hero {
+  position: relative;
+}
+
+.hero__mobile {
+  display: none;
+}
+
+.hero__desktop {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.layer {
+  background-color: var(--clr-soft-violet);
+  height: 100%;
+  left: 0;
+  mix-blend-mode: multiply;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.infos {
+  margin: 4rem;
+}
+
+.infos__title {
+  color: var(--clr-white);
+  font-family: var(--ff-inter);
+  font-size: 2.2rem;
+}
+
+span {
+  color: var(--clr-soft-violet);
+}
+
+.infos__text {
+  color: var(--clr-slightly-transparent-white1);
+  font-family: var(--ff-lexend-deca);
+  font-weight: 300;
+  line-height: 1.7;
+  margin: 1.5em 0 4.5em 0;
+}
+
+.infos__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.companies h2,
+.templates h2,
+.queries h2 {
+  color: var(--clr-white);
+  font-family: var(--ff-inter);
+  font-weight: 500;
+}
+
+.companies p,
+.templates p,
+.queries p {
+  color: var(--clr-slightly-transparent-white2);
+  font-family: var(--ff-lexend-deca);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 768px) {
+  .hero__desktop {
+    display: none;
+  }
+  article {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 1fr auto;
+    margin: 2rem;
+    text-align: center;
+  }
+
+  .hero {
+    grid-row: 1 / 2;
+  }
+
+  .hero__mobile {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .infos {
+    margin: 2rem;
+  }
+
+  .infos__title {
+    font-size: 1.8rem;
+  }
+
+  .infos__text {
+    margin: 1em 0 3.5em 0;
+  }
+
+  .infos__stats {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    place-items: center;
+    row-gap: 1.5em;
+  }
+}
